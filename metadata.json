@@ -1,0 +1,7 @@
+{
+  "name": "朗读养小树",
+  "description": "一款教育类语音互动应用，通过正确音量的朗读帮助小树成长。包含环境噪音校准、分贝检测和游戏化进度功能。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
