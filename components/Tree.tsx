@@ -154,8 +154,8 @@ export const Tree: React.FC<TreeProps> = ({ growth, state }) => {
   const foliageColor = growth > 95 ? '#F59E0B' : '#10B981';
 
   return (
-    // Increased height to h-96 and removed overflow-hidden to give the tree plenty of room
-    <div className="relative flex justify-center items-end h-96 w-full">
+    // Changed: Uses h-full with max-h-[50vh] to adapt to available space while preventing it from dominating small screens
+    <div className="relative flex justify-center items-end h-full max-h-[45vh] w-full">
       <style>{`
         @keyframes elastic-pop {
           0% { transform: scale(0) translateY(50px); opacity: 0; }

@@ -168,7 +168,7 @@ const App: React.FC = () => {
     const rightCount = Math.floor(visibleCount / 2);
 
     return (
-      <div className="absolute inset-x-0 bottom-16 h-32 flex items-end justify-between px-4 -z-10 pointer-events-none">
+      <div className="absolute inset-x-0 bottom-4 h-32 flex items-end justify-between px-4 -z-10 pointer-events-none">
         {/* Left Forest Group */}
         <div className="flex items-end justify-end w-5/12 space-x-[-12px] pr-8">
            {Array.from({ length: leftCount }).map((_, i) => (
@@ -204,10 +204,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between p-6 max-w-md mx-auto relative overflow-hidden bg-sky-50">
+    <div className="h-[100dvh] w-full flex flex-col items-center justify-between max-w-md mx-auto relative overflow-hidden bg-sky-50">
       
       {/* Header & Stats Dashboard */}
-      <div className="w-full z-10 space-y-4">
+      <div className="w-full z-10 space-y-4 p-4">
         {/* Title Row */}
         <div className="flex justify-between items-center">
           <div>
@@ -272,11 +272,11 @@ const App: React.FC = () => {
       )}
 
       {/* Main Visual Area 
-          Changed: justify-center -> justify-end pb-12 to align tree with background forest
+          Changed: justify-end and removed large padding to allow tree to sit comfortably 
       */}
-      <div className="flex-1 w-full flex flex-col items-center justify-end pb-12 relative isolate min-h-[400px]">
+      <div className="flex-1 w-full flex flex-col items-center justify-end relative isolate min-h-0">
         
-        {/* Background Forest */}
+        {/* Background Forest - aligned with bottom of tree area */}
         {renderBackgroundForest()}
 
         {/* The Active Growing Tree */}
@@ -284,7 +284,7 @@ const App: React.FC = () => {
         
         {/* Summary Modal */}
         {appState === AppState.COMPLETED && (
-          <div className="absolute inset-0 z-50 bg-white/95 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center animate-in fade-in zoom-in p-6 text-center border border-slate-100 shadow-2xl">
+          <div className="absolute inset-4 z-50 bg-white/95 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center animate-in fade-in zoom-in p-6 text-center border border-slate-100 shadow-2xl">
             <Award className="w-16 h-16 text-yellow-500 mb-4" />
             <h2 className="text-2xl font-bold text-slate-800">朗读总结</h2>
             
@@ -326,19 +326,19 @@ const App: React.FC = () => {
         )}
       </div>
 
-      {/* Controls & Meter */}
-      <div className="w-full space-y-6 pb-8 z-10 bg-gradient-to-t from-sky-50 via-sky-50 to-transparent pt-4">
+      {/* Controls & Meter - Increased bottom padding to lift buttons safely above browser navigation */}
+      <div className="w-full space-y-4 pb-20 pt-2 px-6 z-10 bg-gradient-to-t from-sky-50 via-sky-50 to-transparent">
         
         {/* Helper Text */}
-        <div className="text-center h-6">
+        <div className="text-center h-5">
           {appState === AppState.CALIBRATING && (
-             <span className="text-yellow-600 text-sm font-medium animate-pulse">保持安静... 正在测量环境底噪...</span>
+             <span className="text-yellow-600 text-xs font-medium animate-pulse">保持安静... 正在测量环境底噪...</span>
           )}
           {appState === AppState.PAUSED && (
-             <span className="text-slate-400 text-sm">已暂停</span>
+             <span className="text-slate-400 text-xs">已暂停</span>
           )}
           {appState === AppState.READING && (
-             <span className="text-slate-400 text-sm">继续朗读，种下一棵树！</span>
+             <span className="text-slate-400 text-xs">继续朗读，种下一棵树！</span>
           )}
         </div>
 
