@@ -271,8 +271,10 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Main Visual Area */}
-      <div className="flex-1 w-full flex flex-col items-center justify-center relative isolate min-h-[400px]">
+      {/* Main Visual Area 
+          Changed: justify-center -> justify-end pb-12 to align tree with background forest
+      */}
+      <div className="flex-1 w-full flex flex-col items-center justify-end pb-12 relative isolate min-h-[400px]">
         
         {/* Background Forest */}
         {renderBackgroundForest()}
